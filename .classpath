@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/src/java/Calculator/src/libs/jaxb-api-2.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/src/java/Calculator/src/libs/jaxb-core-2.3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/src/java/Calculator/src/libs/jaxb-impl-2.3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/src/java/Calculator/src/libs/jaxb-jxc-2.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/src/java/Calculator/src/libs/jaxb-xjc-2.3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/src/java/Calculator/src/libs/jgoodies-common-1.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/src/java/Calculator/src/libs/jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/src/java/Calculator/src/libs/swing-layout-1.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
