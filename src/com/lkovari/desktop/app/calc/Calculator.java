@@ -1,6 +1,6 @@
 /**
  * 
- * Copyright 2005 by László Kövári
+ * Copyright 2005 by Laszlo Kovari
  * laszlo.kovary@gmail.com
  * 
  * Project: Calculator
@@ -42,7 +42,7 @@ public class Calculator
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(3);
         mainFrame.pack();
-        mainFrame.setTitle("RPN Calculator, Copyright © 2007 by László Kővári (still not an exhaustive solution!)");
+        mainFrame.setTitle("RPN Calculator, Copyright � 2007 by Laszlo Kovari (still not an exhaustive solution!)");
         mainFrame.setSize(1024, 572);
     }
 }
