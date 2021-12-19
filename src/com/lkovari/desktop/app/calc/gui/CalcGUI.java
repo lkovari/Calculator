@@ -17,7 +17,6 @@ package com.lkovari.desktop.app.calc.gui;
 
 import javax.swing.JFrame;
 import com.lkovari.desktop.app.calc.gui.calcbutton.events.CalculatorButtonPressEvent;
-import javax.swing.tree.TreeModel;
 import com.lkovari.desktop.app.calc.expressiontreemodel.ExpressionTreeModel;
 import java.awt.event.KeyEvent;
 import java.awt.event.ComponentEvent;
@@ -27,23 +26,17 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Component;
+
 import com.jgoodies.forms.layout.CellConstraints;
 import com.lkovari.desktop.app.calc.gui.kinds.ButtonType;
 import com.lkovari.desktop.app.calc.gui.kinds.ButtonId;
-import java.awt.LayoutManager;
-import java.awt.Container;
 import com.lkovari.desktop.app.calc.gui.calcbutton.CalculatorButton;
-import java.util.Vector;
 import com.jgoodies.forms.layout.FormLayout;
 import javax.swing.JComboBox;
-import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -60,25 +53,21 @@ import java.awt.event.ComponentListener;
 import javax.swing.JPanel;
 
 /**
- * @author llkovari
+ * @author lkovari
  * CalcGUI 
  */
 public class CalcGUI extends JPanel implements ComponentListener, KeyListener, RefreshErrorEventListener, RefreshExprTreeModelEventListener, RefreshInfoEventListener, RefreshDisplayEventListener, RefreshExpressionEventListener, CalcButtonListener
 {
-    private ButtonsManager buttonsManager;
+	private static final long serialVersionUID = 1L;
+	private ButtonsManager buttonsManager;
     private CalculatorObject calculatorObject;
     private JPanel buttonsPanel;
     private JSplitPane calculatorSplitPane;
-    private JLabel expressionLabel;
-    private JPanel expressionPanel;
     private JTextField expressionTextField;
     private JTree expressionTree;
-    private JLabel expressionTreeLabel;
     private JLabel footerLabel;
-    private JScrollPane jScrollPane1;
-    private JScrollPane jScrollPane2;
     private JPanel keysPanel;
-    private JComboBox numericalSystemComboBox;
+    private JComboBox<String> numericalSystemComboBox;
     private JLabel numericalSystemLabel;
     private JPanel numericalSystemPanel;
     private JPanel valuesPanel;
@@ -89,7 +78,6 @@ public class CalcGUI extends JPanel implements ComponentListener, KeyListener, R
     private String[][] buttonCaptions;
     private int colCount;
     private int rowCount;
-    private Vector<CalculatorButton> calculatorButtons;
     
     public CalcGUI(final CalculatorObject calcObj) {
         this.buttonsManager = null;
@@ -99,11 +87,10 @@ public class CalcGUI extends JPanel implements ComponentListener, KeyListener, R
         this.buttonCaptions = new String[][] { { "Pi", "Sqrt", "x^2", "M+", " ", "D", "E", "F", "Mod", "Clr" }, { "Sin", "Exp", "x^3", "M-", " ", "A", "B", "C", "And", "+" }, { "Tan", "Log", "x^y", "Mr", " ", "7", "8", "9", "Or", "-" }, { "Cos", "Ln", "1/x", "Mc", " ", "4", "5", "6", "Xor", "*" }, { "(", ")", " ", " ", " ", "1", "2", "3", "Not", "/" }, { " ", " ", " ", " ", " ", "0", "+/-", ".", "Lsh", "=" } };
         this.colCount = 10;
         this.rowCount = 6;
-        this.calculatorButtons = new Vector<CalculatorButton>();
         this.initComponents();
         this.initLayout();
         this.initButtons();
-        this.calculatorObject = this.calculatorObject;
+        this.calculatorObject = calcObj;
         this.buttonsManager = new ButtonsManager(this.keysPanel);
         this.numericalSystemComboBox.setSelectedIndex(2);
         this.addComponentListener(this);
@@ -472,14 +459,9 @@ public class CalcGUI extends JPanel implements ComponentListener, KeyListener, R
         this.buttonsPanel = new JPanel();
         this.numericalSystemPanel = new JPanel();
         this.numericalSystemLabel = new JLabel();
-        this.numericalSystemComboBox = new JComboBox();
+        this.numericalSystemComboBox = new JComboBox<String>();
         this.keysPanel = new JPanel();
-        this.expressionPanel = new JPanel();
-        this.expressionLabel = new JLabel();
-        this.expressionTreeLabel = new JLabel();
-        this.jScrollPane1 = new JScrollPane();
         this.postfixExpressionTextField = new JTextField();
-        this.jScrollPane2 = new JScrollPane();
         this.expressionTree = new JTree();
         this.valuesPanel = new JPanel();
         this.setToolTipText("Copyright (c) 2005 by L\u00e1szl\u00f3 K\u00f6v\u00e1ri\n(Not implemented all functions yet)");

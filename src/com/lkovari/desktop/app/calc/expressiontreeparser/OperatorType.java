@@ -25,7 +25,8 @@ public enum OperatorType
     BINARY("BINARY", 1, 2), 
     TERNARY("TERNARY", 2, 3);
     
-    private final int value;
+    @SuppressWarnings("unused")
+	private final int value;
     
     /**
      * 

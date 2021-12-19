@@ -88,6 +88,8 @@ public final class Operations
                 System.out.println("^ executed");
                 break;
             }
+		default:
+			break;
         }
         return res;
     }
@@ -124,6 +126,8 @@ public final class Operations
                 System.out.println("1/x executed");
                 break;
             }
+		default:
+			break;
         }
         return res;
     }

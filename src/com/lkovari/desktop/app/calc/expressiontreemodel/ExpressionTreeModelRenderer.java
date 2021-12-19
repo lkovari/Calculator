@@ -76,7 +76,7 @@ public class ExpressionTreeModelRenderer extends DefaultTreeCellRenderer
     }
     
     protected Icon getTreeNodeIcon(final ExpressionTreeNode expressionNode) {
-        final int operatorKind = new Integer(expressionNode.getOperatorKind().ordinal());
+        final int operatorKind = expressionNode.getOperatorKind().ordinal();
         if (this.IconCollection.containsKey(operatorKind)) {
             return this.IconCollection.get(operatorKind);
         }

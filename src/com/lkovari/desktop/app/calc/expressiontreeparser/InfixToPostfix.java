@@ -34,9 +34,9 @@ import com.lkovari.desktop.app.calc.expressiontreeparser.utils.ExpressionParserU
  */
 public class InfixToPostfix extends ExpressionParserUtils
 {
-    private Stack infixStack;
+    private Stack<String> infixStack;
     
-    public InfixToPostfix(final Stack infix) {
+    public InfixToPostfix(final Stack<String> infix) {
         this.infixStack = null;
         this.infixStack = infix;
     }
@@ -73,7 +73,6 @@ public class InfixToPostfix extends ExpressionParserUtils
 	 */    
     public void convertToPostfix(final Stack<String> postfixStack) throws Exception {
         final Stack<String> tempStack = new Stack<String>();
-        final String onTopOfStack = "";
         String exprElement = "";
         this.ReverseStack(this.infixStack);
         while (!this.infixStack.isEmpty()) {

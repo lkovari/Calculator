@@ -22,7 +22,8 @@ public enum NumericalSystem
     DECIMAL("DECIMAL", 2, 10), 
     HEXADECIMAL("HEXADECIMAL", 3, 16);
     
-    private final int value;
+    @SuppressWarnings("unused")
+	private final int value;
     
     private NumericalSystem(final String name, final int ordinal, final int value) {
         this.value = value;

@@ -41,7 +41,8 @@ public enum OperatorKind
     SQRT("SQRT", 15, 82), 
     REC("REC", 16, 83);
     
-    private final int value;
+    @SuppressWarnings("unused")
+	private final int value;
     
     private OperatorKind(final String name, final int ordinal, final int value) {
         this.value = value;
@@ -273,6 +274,8 @@ public enum OperatorKind
                 res = OperatorType.UNARY;
                 break;
             }
+		default:
+			break;
         }
         return res;
     }

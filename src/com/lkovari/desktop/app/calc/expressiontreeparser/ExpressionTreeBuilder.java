@@ -27,15 +27,17 @@ import com.lkovari.desktop.app.calc.expressiontreeparser.utils.ExpressionParserU
  */
 public class ExpressionTreeBuilder extends ExpressionParserUtils
 {
-    private Stack postfixStack;
-    private ExpressionTreeNode currentNode;
-    private ExpressionTreeNode rootNode;
+    private Stack<String> postfixStack;
+    @SuppressWarnings("unused")
+	private ExpressionTreeNode currentNode;
+    @SuppressWarnings("unused")
+	private ExpressionTreeNode rootNode;
     
 	/**
 	 * Constructor ExpressionTreeBuilder
 	 * @param postfix postfix arithmetic expression
 	 */    
-    public ExpressionTreeBuilder(final Stack postfix) {
+    public ExpressionTreeBuilder(final Stack<String> postfix) {
         this.postfixStack = null;
         this.currentNode = null;
         this.rootNode = null;
@@ -91,7 +93,7 @@ public class ExpressionTreeBuilder extends ExpressionParserUtils
      * @param postfix a postfix arithmetic expression
      * @return an a root expression tree node
      */    
-    public static ExpressionTreeNode Build(final Stack postfix) {
+    public static ExpressionTreeNode Build(final Stack<String> postfix) {
         ExpressionTreeNode rootNode = null;
         ExpressionTreeBuilder expressionTreeBuilder = null;
         try {

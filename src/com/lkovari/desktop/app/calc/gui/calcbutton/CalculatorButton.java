@@ -31,7 +31,8 @@ import javax.swing.JLabel;
 
 public class CalculatorButton extends JLabel
 {
-    private Color selectionColor;
+	private static final long serialVersionUID = 1L;
+	private Color selectionColor;
     private boolean selected;
     private ButtonId buttonId;
     private char operationCode;
@@ -71,8 +72,8 @@ public class CalculatorButton extends JLabel
         this.relatedNumericalSystems.add(numericalSystems);
     }
     
-    public boolean containNumericalSystem(final NumericalSystem numericalSystems) {
-        return this.relatedNumericalSystems.contains(numericalSystems);
+    public boolean containNumericalSystem(final NumericalSystem numericalSystem) {
+        return this.relatedNumericalSystems.contains(numericalSystem);
     }
     
     public ButtonType getButtonType() {

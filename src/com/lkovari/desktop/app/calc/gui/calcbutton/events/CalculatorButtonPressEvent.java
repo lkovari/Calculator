@@ -19,7 +19,9 @@ import java.util.EventObject;
 
 public class CalculatorButtonPressEvent extends EventObject
 {
-    public CalculatorButtonPressEvent(final Object src) {
+	private static final long serialVersionUID = 1L;
+
+	public CalculatorButtonPressEvent(final Object src) {
         super(src);
     }
 }

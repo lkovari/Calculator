@@ -57,11 +57,11 @@ public class ExpressionParserUtils
 	 * Method: ReverseStack 
 	 * @param ss stack which we want to revere 
 	 */    
-    protected final void ReverseStack(final Stack ss) {
+    protected final void ReverseStack(final Stack<String> ss) {
         final Object[] elements = ss.toArray();
         ss.clear();
         for (int l = elements.length - 1; l >= 0; --l) {
-            ss.push(elements[l]);
+            ss.push((String)elements[l]);
         }
     }
     

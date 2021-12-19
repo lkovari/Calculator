@@ -49,13 +49,12 @@ public class CalculatorObject extends ExpressionParserUtils
     public String displayableExpression;
     protected EventListenerList listenerList;
     
-    private String postfixExpressionToString(final Stack postfix) {
+    private String postfixExpressionToString(final Stack<String> postfix) {
         String res = "";
         final Object[] elementList = postfix.toArray();
         for (int l = 0; l <= elementList.length - 1; ++l) {
             String element = (String)elementList[l];
             if (element.length() == 1) {
-                final char c = '\0';
                 final OperatorKind ok = OperatorKind.getOperatorKind(element.charAt(0));
                 if (ok != OperatorKind.ERR) {
                     element = ok.getText();
@@ -170,9 +169,7 @@ public class CalculatorObject extends ExpressionParserUtils
     }
     
     public void signChange() {
-        final int ix = -1;
         final int l = this.expression.length();
-        final String tempLast = null;
         if (this.isNumeric(this.expression)) {
             this.expression = "-" + this.expression;
         }
@@ -211,10 +208,7 @@ public class CalculatorObject extends ExpressionParserUtils
     }
     
     public void Hit(final char o, final boolean keyboard) {
-        final int res = 0;
-        final String postfixExpr = "";
         String opr = "";
-        final double value = 0.0;
         if (o == 'C' || o == 'c') {
             this.Clear();
             System.out.println(String.valueOf(o) + "pressed");
@@ -294,7 +288,6 @@ public class CalculatorObject extends ExpressionParserUtils
         char cc = '\0';
         for (int l = 0; l < expr.length(); ++l) {
             c = expr.charAt(l);
-            final boolean isOperatorToken = false;
             cc = OperatorKind.getOperatorToken(c);
             if (cc != '\0') {
                 this.Hit(cc, false);

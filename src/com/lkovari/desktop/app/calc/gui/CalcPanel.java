@@ -16,7 +16,6 @@
 package com.lkovari.desktop.app.calc.gui;
 
 import com.lkovari.desktop.app.calc.gui.calcbutton.events.CalculatorButtonPressEvent;
-import javax.swing.tree.TreeModel;
 import com.lkovari.desktop.app.calc.expressiontreemodel.ExpressionTreeModel;
 import java.awt.event.KeyEvent;
 import java.awt.event.ComponentEvent;
@@ -24,21 +23,18 @@ import com.jgoodies.forms.layout.CellConstraints;
 import com.lkovari.desktop.app.calc.gui.kinds.ButtonType;
 import com.lkovari.desktop.app.calc.gui.kinds.ButtonId;
 import java.awt.Component;
-import java.awt.LayoutManager;
 import org.jdesktop.layout.GroupLayout;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Container;
+import java.awt.Font;
+
 import com.lkovari.desktop.app.calc.gui.calcbutton.CalculatorButton;
-import java.util.Vector;
 import com.jgoodies.forms.layout.FormLayout;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
@@ -59,7 +55,8 @@ import javax.swing.JPanel;
 
 public class CalcPanel extends JPanel implements ComponentListener, KeyListener, RefreshErrorEventListener, RefreshExprTreeModelEventListener, RefreshInfoEventListener, RefreshDisplayEventListener, RefreshExpressionEventListener, CalcButtonListener
 {
-    private ButtonsManager buttonsManager;
+	private static final long serialVersionUID = 1L;
+	private ButtonsManager buttonsManager;
     private CalculatorObject calculatorObject;
     private JPanel buttonsPanel;
     private JSplitPane calculatorSplitPane;
@@ -72,7 +69,7 @@ public class CalcPanel extends JPanel implements ComponentListener, KeyListener,
     private JScrollPane jScrollPane1;
     private JScrollPane jScrollPane2;
     private JPanel keysPanel;
-    private JComboBox numericalSystemComboBox;
+    private JComboBox<String> numericalSystemComboBox;
     private JLabel numericalSystemLabel;
     private JPanel numericalSystemPanel;
     private JTextField postfixExpressionTextField;
@@ -82,7 +79,6 @@ public class CalcPanel extends JPanel implements ComponentListener, KeyListener,
     private String[][] buttonCaptions;
     private int colCount;
     private int rowCount;
-    private Vector<CalculatorButton> calculatorButtons;
     
     public CalcPanel(final CalculatorObject calculatorObject) {
         this.buttonsManager = null;
@@ -92,7 +88,6 @@ public class CalcPanel extends JPanel implements ComponentListener, KeyListener,
         this.buttonCaptions = new String[][] { { "Pi", "Sqrt", "x^2", "M+", " ", "D", "E", "F", "Mod", "Clr" }, { "Sin", "Exp", "x^3", "M-", " ", "A", "B", "C", "And", "+" }, { "Tan", "Log", "x^y", "Mr", " ", "7", "8", "9", "Or", "-" }, { "Cos", "Ln", "1/x", "Mc", " ", "4", "5", "6", "Xor", "*" }, { "(", ")", " ", " ", " ", "1", "2", "3", "Not", "/" }, { " ", " ", " ", " ", " ", "0", "+/-", ".", "Lsh", "=" } };
         this.colCount = 10;
         this.rowCount = 6;
-        this.calculatorButtons = new Vector<CalculatorButton>();
         this.initComponents();
         this.initLayout();
         this.initButtons();
@@ -117,7 +112,7 @@ public class CalcPanel extends JPanel implements ComponentListener, KeyListener,
         this.buttonsPanel = new JPanel();
         this.numericalSystemPanel = new JPanel();
         this.numericalSystemLabel = new JLabel();
-        this.numericalSystemComboBox = new JComboBox();
+        this.numericalSystemComboBox = new JComboBox<String>();
         this.keysPanel = new JPanel();
         this.expressionPanel = new JPanel();
         this.expressionLabel = new JLabel();
@@ -528,6 +523,10 @@ public class CalcPanel extends JPanel implements ComponentListener, KeyListener,
             calculatorButton.setToolTipText("Exclusive or");
         }
         calculatorButton.setOperationCode(c);
+        // set font size
+        Font font = calculatorButton.getFont();
+        float fontSize = font.getSize();
+        calculatorButton.setFont(calculatorButton.getFont().deriveFont(fontSize + 5.0f));            
         calculatorButton.repaint();
     }
     
