@@ -42,7 +42,7 @@ public class Calculator
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(3);
         mainFrame.pack();
-        mainFrame.setTitle("RPN Calculator, Copyright © 2007 by Laszlo Kovari (still not an exhaustive solution!)");
+        mainFrame.setTitle("RPN Calculator, Copyright © 2007 by Laszlo Kovari (still not an exhaustive solution, contains known bugs!)");
         mainFrame.setSize(1024, 572);
     }
 }
