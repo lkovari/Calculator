@@ -100,7 +100,6 @@ public class CalcGUI extends JPanel implements ComponentListener, KeyListener, R
     protected void finalize() throws Throwable {
         this.calculatorObject = null;
         this.buttonsManager = null;
-        super.finalize();
     }
     
     private void initLayout() {

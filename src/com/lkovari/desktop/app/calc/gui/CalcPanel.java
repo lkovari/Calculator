@@ -26,6 +26,8 @@ import java.awt.Component;
 import org.jdesktop.layout.GroupLayout;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.DefaultComboBoxModel;
@@ -79,6 +81,7 @@ public class CalcPanel extends JPanel implements ComponentListener, KeyListener,
     private String[][] buttonCaptions;
     private int colCount;
     private int rowCount;
+    private List<CalculatorButton> calculatorButtons = new ArrayList<CalculatorButton>();
     
     public CalcPanel(final CalculatorObject calculatorObject) {
         this.buttonsManager = null;
@@ -101,7 +104,8 @@ public class CalcPanel extends JPanel implements ComponentListener, KeyListener,
     protected void finalize() throws Throwable {
         this.calculatorObject = null;
         this.buttonsManager = null;
-        super.finalize();
+        this.calculatorButtons.clear();
+        this.calculatorButtons= null;
     }
     
     private void initComponents() {
@@ -528,6 +532,7 @@ public class CalcPanel extends JPanel implements ComponentListener, KeyListener,
         float fontSize = font.getSize();
         calculatorButton.setFont(calculatorButton.getFont().deriveFont(fontSize + 5.0f));            
         calculatorButton.repaint();
+        this.calculatorButtons.add(calculatorButton);
     }
     
     public void initButtons() {
@@ -556,6 +561,9 @@ public class CalcPanel extends JPanel implements ComponentListener, KeyListener,
     @Override
     public void componentResized(final ComponentEvent e) {
         final Component c = (Component)e.getSource();
+        for (CalculatorButton cb : this.calculatorButtons) {
+        	cb.resizeLabel();
+        }
         System.out.println(c.getSize().toString());
     }
     

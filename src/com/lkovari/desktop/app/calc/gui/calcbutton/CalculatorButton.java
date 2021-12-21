@@ -203,10 +203,13 @@ public class CalculatorButton extends JLabel
         this.addMouseListener(this.mouseListener);
     }
     
+    public void resizeLabel() {
+    	
+	}
+
     @Override
     protected void finalize() throws Throwable {
         this.relatedNumericalSystems.clear();
         this.relatedNumericalSystems = null;
-        super.finalize();
     }
 }
